@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EchoX - Persona Studio</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">✨</span>
+        <span class="logo-text">EchoX</span>
+        <span class="badge">Gemini 3.8</span>
+      </div>
+      <div class="version">v1.0.0</div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="persona">Voice DNA</button>
+      <button class="tab-btn" data-tab="sync">Sync Style</button>
+      <button class="tab-btn" data-tab="settings">Settings</button>
+    </nav>
+
+    <!-- Tab 1: Voice DNA -->
+    <div id="tab-persona" class="tab-content active">
+      <div id="no-persona" class="card empty-state">
+        <p>No Persona Profile detected yet.</p>
+        <button id="go-to-sync-btn" class="primary-btn">Sync from your Profile Replies</button>
+      </div>
+
+      <div id="persona-details" class="card" style="display: none;">
+        <div class="persona-header">
+          <div class="persona-handle" id="dna-handle">@username</div>
+          <div class="persona-casing-badge" id="dna-casing">lowercase</div>
+        </div>
+
+        <div class="dna-item">
+          <label>Tone & Vibe</label>
+          <div id="dna-tone" class="dna-val">casual, witty, tech-minded</div>
+        </div>
+
+        <div class="dna-item">
+          <label>Typography Quirks</label>
+          <div id="dna-punctuation" class="dna-val">no trailing periods • low emoji</div>
+        </div>
+
+        <div class="dna-item">
+          <label>Signature Slang / Vocabulary</label>
+          <div id="dna-vocab" class="tag-cloud"></div>
+        </div>
+
+        <div class="dna-item">
+          <label>Custom Instructions</label>
+          <textarea id="dna-custom-rules" rows="3" placeholder="e.g. Never use exclamation marks, keep it under 10 words, focus on distributed systems..."></textarea>
+          <button id="save-rules-btn" class="secondary-btn">Save Instructions</button>
+        </div>
+
+        <div class="dna-item">
+          <label>Adaptive Memory (Recent Edits Learned)</label>
+          <div id="dna-memory-list" class="memory-list">
+            <span class="empty-note">No recent manual tweaks recorded yet.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Sync Style -->
+    <div id="tab-sync" class="tab-content">
+      <div class="card">
+        <h3>1-Click Profile Sync</h3>
+        <p class="description">Navigate to your replies tab on X (<code>x.com/your_handle/with_replies</code>) and click below to learn your voice.</p>
+        
+        <div class="input-group">
+          <label>Your X Handle</label>
+          <input type="text" id="sync-handle-input" placeholder="e.g. jack">
+        </div>
+
+        <button id="sync-profile-btn" class="primary-btn">
+          <span>⚡ Scrape & Analyze Active Page</span>
+        </button>
+        <div id="sync-status" class="status-msg"></div>
+      </div>
+
+      <div class="card">
+        <h3>Or Paste Sample Replies</h3>
+        <p class="description">Paste 5-10 typical replies you've written (one per line) to instantly generate your Persona DNA.</p>
+        <textarea id="manual-samples-input" rows="5" placeholder="honestly this is super clean&#10;ngl looks like a memory leak&#10;fair point but what about edge cases?"></textarea>
+        <button id="analyze-manual-btn" class="secondary-btn">Build Voice DNA from Text</button>
+      </div>
+    </div>
+
+    <!-- Tab 3: Settings -->
+    <div id="tab-settings" class="tab-content">
+      <div class="card">
+        <h3>API Configuration</h3>
+        <div class="input-group">
+          <label>Gemini API Key</label>
+          <input type="password" id="api-key-input" placeholder="AIzaSy...">
+          <small><a href="https://aistudio.google.com/app/apikey" target="_blank">Get a free key from Google AI Studio</a></small>
+        </div>
+
+        <div class="input-group">
+          <label>Model</label>
+          <select id="model-select">
+            <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite (High Availability • Recommended)</option>
+            <option value="gemini-flash-latest">Gemini Flash (Auto-Balanced)</option>
+            <option value="gemini-3.8-flash">Gemini 3.8 Flash</option>
+            <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash-Lite</option>
+          </select>
+        </div>
+
+        <h3>Context & Grok Options</h3>
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" id="smart-grok-toggle" checked>
+            <span>Smart Grok Mode (Auto-explain threads & news)</span>
+          </label>
+        </div>
+
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" id="auto-close-grok-toggle" checked>
+            <span>Auto-dismiss Grok Drawer after extraction</span>
+          </label>
+        </div>
+
+        <button id="save-settings-btn" class="primary-btn">Save Settings</button>
+        <div id="settings-status" class="status-msg"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+/* ==========================================================================
+   EchoX Voice Reply Extension - Modern UI Styles
+   Optimized for X (Twitter) Dark / Dim / Lights Out Themes
+   ========================================================================== */
+
+/* 1. Action Bar Inline Trigger Button */
+.echox-action-btn-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 2px;
+  position: relative;
+  z-index: 5;
+}
+
+.echox-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(29, 155, 240, 0.08);
+  border: 1px solid rgba(29, 155, 240, 0.28);
+  cursor: pointer;
+  color: #1d9bf0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  height: 28px;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.echox-action-btn:hover {
+  background: rgba(29, 155, 240, 0.18);
+  border-color: #1d9bf0;
+  box-shadow: 0 0 12px rgba(29, 155, 240, 0.3);
+  transform: translateY(-1px);
+}
+
+.echox-action-btn:active {
+  transform: scale(0.96);
+}
+
+.echox-action-btn svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.echox-btn-text {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* 2. EchoX Full-Width Studio Popover */
+.echox-popover {
+  margin: 12px 0 16px 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: #0b0e14;
+  border: 1px solid #262c36;
+  border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(29, 155, 240, 0.15);
+  color: #e7e9ea;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  z-index: 1000;
+  position: relative;
+  overflow: hidden;
+  animation: echox-slide-in 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes echox-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.echox-popover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #11161f;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.echox-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f7f9f9;
+}
+
+.echox-sparkle {
+  color: #1d9bf0;
+  font-size: 15px;
+}
+
+.echox-model-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #71767b;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.echox-demo-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 2px 7px;
+  border-radius: 9999px;
+  cursor: help;
+}
+
+.echox-close-btn {
+  background: transparent;
+  border: none;
+  color: #71767b;
+  font-size: 14px;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.echox-close-btn:hover {
+  background: rgba(239, 243, 244, 0.12);
+  color: #eff3f4;
+}
+
+/* Status & Loading Spinner */
+.echox-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 16px;
+  color: #8b949e;
+  font-size: 13.5px;
+  justify-content: center;
+}
+
+.echox-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(29, 155, 240, 0.2);
+  border-top-color: #1d9bf0;
+  border-radius: 50%;
+  animation: echox-spin 0.75s linear infinite;
+}
+
+@keyframes echox-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Candidates Container */
+.echox-candidates {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px 16px 16px;
+}
+
+/* Candidate Card */
+.echox-candidate-card {
+  background: #141922;
+  border: 1px solid #232936;
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.echox-candidate-card:hover {
+  background: #18202c;
+  border-color: rgba(29, 155, 240, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+.echox-candidate-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Stance Tags with high contrast */
+.echox-stance-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.echox-tag-casual {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.echox-tag-insightful {
+  color: #a78bfa;
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.echox-tag-witty {
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.14);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.echox-char-count {
+  font-size: 11px;
+  color: #6e7681;
+}
+
+/* Candidate Text */
+.echox-candidate-text {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #f0f6fc;
+  font-weight: 400;
+  word-break: break-word;
+}
+
+/* Action Buttons inside Card */
+.echox-candidate-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.echox-copy-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #8b949e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.echox-copy-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.echox-insert-btn {
+  background: #1d9bf0;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+}
+
+.echox-insert-btn:hover {
+  background: #1a8cd8;
+  box-shadow: 0 0 12px rgba(29, 155, 240, 0.4);
+  transform: translateY(-0.5px);
+}
+
+.echox-insert-btn:active {
+  transform: scale(0.97);
+}
+
+/* Error Banner */
+.echox-error {
+  margin: 12px 16px 16px;
+  padding: 12px 14px;
+  background: rgba(244, 33, 46, 0.12);
+  border: 1px solid rgba(244, 33, 46, 0.35);
+  border-radius: 10px;
+  color: #f87171;
+  font-size: 13px;
+  line-height: 1.4;
+}
